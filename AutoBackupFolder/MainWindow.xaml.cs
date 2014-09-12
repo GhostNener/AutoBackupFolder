@@ -153,7 +153,8 @@ namespace AutoBackupFolder
 
         void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            BackupFolder();
+            Thread thread = new Thread(BackupFolder);
+            thread.Start();
         }
         private static void SelectFolderPath(object sender)
         {
